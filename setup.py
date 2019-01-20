@@ -3,7 +3,7 @@ import http_firewall
 from os import path
 from setuptools import setup, find_packages
 from setuptools.command.develop import develop
-from setuptools.command.install import install
+# from setuptools.command.install import install
 from subprocess import check_call, CalledProcessError
 
 pwd = path.abspath(path.dirname(__file__))
@@ -36,7 +36,9 @@ class TestCommand(develop):
 
 
 def requirements_to_list(filename):
-    return [dep for dep in open(path.join(pwd, filename)).read().split('\n') if (
+    return [dep for dep in open(path.join(pwd, filename)).read().split(
+        '\n'
+    ) if (
         dep and not dep.startswith('#')
     )]
 
@@ -55,7 +57,7 @@ setup(
         'Intended Audience :: End Users/Desktop',
         'Topic :: Internet',
         'Topic :: System :: Filesystems',
-        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',  # noqa: E501
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
