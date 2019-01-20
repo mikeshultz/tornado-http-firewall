@@ -66,7 +66,7 @@ setup(
     install_requires=requirements_to_list('requirements.txt'),
     extras_require={
         'dev': requirements_to_list('requirements.dev.txt'),
-        #'test': requirements_to_list('requirements.test.txt'),
+        'test': requirements_to_list('requirements.test.txt'),
     },
     entry_points={
         'console_scripts': [
