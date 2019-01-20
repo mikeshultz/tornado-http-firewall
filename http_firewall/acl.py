@@ -12,7 +12,7 @@ acl: Optional[Acl] = None
 config_cache: Optional[Dict[str, Any]] = None
 
 
-def load_config_file(config_file: str):
+def load_config_file(config_file: str) -> dict:
     """ Load a config file and populate the ACL """
     global config_cache
 
