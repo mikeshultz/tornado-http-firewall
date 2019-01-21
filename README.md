@@ -4,7 +4,8 @@
 An HTTP proxy that utilizes ACLs to control access to URIs.
 
 **NOTE**: Consider this software alpha and extremely buggy and insecure.  You
-probably shouldn't use this.
+probably shouldn't use this unless you're desparate for something like me. Pull
+requests are welcome and encouraged.
 
 Requires Python>=3.6
 
