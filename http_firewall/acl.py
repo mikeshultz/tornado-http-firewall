@@ -30,7 +30,7 @@ def load_config_file(config_file: str) -> dict:
     return config_cache
 
 
-def build_acl(config: Dict[str, Any]):
+def build_acl(config: Dict[str, Any]) -> Acl:
     """ Build the ACL from config """
     global acl
     acl = Acl()
@@ -57,8 +57,10 @@ def build_acl(config: Dict[str, Any]):
                     ))
                     acl.grant(k, res, ALLOW)
 
+    return acl
 
-def load_acl_config(config_file: str):
+
+def load_acl_config(config_file: str) -> Acl:
     """ Initialize all the things """
     global acl, config_cache
 
