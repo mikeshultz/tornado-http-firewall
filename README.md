@@ -1,4 +1,5 @@
 # tornado-http-firewall
+[![Build Status](https://travis-ci.org/mikeshultz/solidbyte.svg?branch=master)](https://travis-ci.org/mikeshultz/solidbyte) [![Coverage Status](https://coveralls.io/repos/github/mikeshultz/tornado-http-firewall/badge.svg?branch=master)](https://coveralls.io/github/mikeshultz/tornado-http-firewall?branch=master)
 
 An HTTP proxy that utilizes ACLs to control access to URIs.
 
