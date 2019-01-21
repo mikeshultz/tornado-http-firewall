@@ -11,7 +11,7 @@ Requires Python>=3.6
 
 ## Usage
 
-    usage: thfirewall [-h] [-a ADDRESS] [-p PORT] [-c CONFIG] [-d]
+    usage: thfirewall [-h] [-a ADDRESS] [-p PORT] [-t TARGET] [-c CONFIG] [-d]
 
     An HTTP proxy that utilizes ACLs to control access to URIs
 
@@ -20,6 +20,8 @@ Requires Python>=3.6
       -a ADDRESS, --address ADDRESS
                             Port number to listen on
       -p PORT, --port PORT  Port number to listen on
+      -t TARGET, --target TARGET
+                            The target top level URL to forward requests
       -c CONFIG, --config CONFIG
                             The ACL config YAML file
       -d, --debug           Show debug messages

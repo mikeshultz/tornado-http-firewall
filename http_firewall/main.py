@@ -116,15 +116,17 @@ class ForwardHandler(tornado.web.RequestHandler):
                 log.debug("Blocked header {}".format(match.group('name')))
 
 
-def forward_handler_factory() -> Type[ForwardHandler]:
+def forward_handler_factory(target_url: str) -> Type[ForwardHandler]:
     handler = ForwardHandler
-    setattr(handler, 'proxy_dest_url', 'http://localhost:5001')
+    setattr(handler, 'proxy_dest_url', target_url)
     return handler
 
 
-def make_app() -> tornado.web.Application:
+def make_app(
+            target_url: str = 'http://localhost:8080'
+        ) -> tornado.web.Application:
     return tornado.web.Application([
-        (r"/(.*)", forward_handler_factory()),
+        (r"/(.*)", forward_handler_factory(target_url)),
     ])
 
 
@@ -138,6 +140,9 @@ def main(args=None):
                         help='Port number to listen on')
     parser.add_argument('-p', '--port', type=int, default=8080,
                         help='Port number to listen on')
+    parser.add_argument('-t', '--target', type=str,
+                        default='http://127.0.0.1:8080',
+                        help='The target top level URL to forward requests')
     parser.add_argument('-c', '--config', type=str,
                         default='/etc/http_filrewall.yml',
                         help='The ACL config YAML file')
@@ -154,6 +159,6 @@ def main(args=None):
     load_acl_config(args.config)
 
     log.info("Starting HTTP server...")
-    app = make_app()
+    app = make_app(args.target)
     app.listen(args.port, address=args.address)
     tornado.ioloop.IOLoop.current().start()
