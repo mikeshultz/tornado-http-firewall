@@ -79,6 +79,9 @@ setup(
         '': [
             'README.md',
             'LICENSE',
+            'requirements.txt',
+            'requirements.dev.txt',
+            'requirements.test.txt',
         ],
     },
     cmdclass={
