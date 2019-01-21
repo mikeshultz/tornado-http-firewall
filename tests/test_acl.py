@@ -82,7 +82,7 @@ def test_acl_check_allowed(temp_dir):
             _file.write(ACL_CONFIG_1)
 
         # Write our test config
-        new_acl = load_acl_config(str(config_file))
+        load_acl_config(str(config_file))
 
         assert check_allowed('/api/v0/get')
         assert check_allowed('/api/v0/pin/ls')
